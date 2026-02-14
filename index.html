@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Owockowo - Serwer Minecraft</title>
+    <title>Owockowo - Sklep</title>
     <style>
         :root {
             --glow: 0 0 20px rgba(168, 85, 247, 0.4);
             --purple: #a855f7;
-            --dark-purple: #7e22ce;
         }
 
         body {
@@ -54,11 +53,6 @@
             -webkit-text-fill-color: transparent;
             margin-bottom: 30px;
             font-weight: 800;
-            letter-spacing: -1px;
-        }
-
-        .nav {
-            margin-bottom: 40px;
         }
 
         .btn {
@@ -86,10 +80,6 @@
             color: var(--purple);
         }
 
-        .btn-shop-trigger:hover {
-            color: white;
-        }
-
         .content-section {
             display: none;
         }
@@ -107,10 +97,11 @@
             border: 1px solid rgba(168, 85, 247, 0.1);
         }
 
-        h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: #fff;
+        .price {
+            display: block;
+            font-size: 0.8rem;
+            color: #a1a1aa;
+            margin-top: 5px;
         }
 
         h3 { 
@@ -118,6 +109,12 @@
             text-transform: uppercase; 
             font-size: 0.85rem; 
             letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .info-text {
+            font-size: 0.9rem;
+            color: #a1a1aa;
             margin-bottom: 20px;
         }
 
@@ -131,9 +128,6 @@
 
         .back-btn:hover {
             opacity: 1;
-            background: transparent;
-            box-shadow: none;
-            transform: none;
             text-decoration: underline;
         }
     </style>
@@ -153,24 +147,30 @@
         </div>
 
         <div id="shop" class="content-section">
-            <h2>Sklep</h2>
+            <h1>Sklep</h1>
+            <p class="info-text">Wybierz rangę i wpisz odpowiednią kwotę w Tipply!</p>
             
             <div class="shop-category">
-                <h3>Rangi Premium</h3>
-                <a href="https://tipply.pl/@dorszeg" target="_blank" class="btn">VIP</a>
-                <a href="https://tipply.pl/@dorszeg" target="_blank" class="btn">SVIP</a>
-                <a href="https://tipply.pl/@dorszeg" target="_blank" class="btn">UVIP</a>
-                <a href="https://tipply.pl/@dorszeg" target="_blank" class="btn">SZEF</a>
+                <h3>Dostępne Rangi</h3>
+                
+                <a href="https://tipply.pl/@dorszeg" target="_blank" class="btn">
+                    VIP<span class="price">5.00 PLN</span>
+                </a>
+                
+                <a href="https://tipply.pl/@dorszeg" target="_blank" class="btn">
+                    SVIP<span class="price">10.00 PLN</span>
+                </a>
+                
+                <a href="https://tipply.pl/@dorszeg" target="_blank" class="btn">
+                    UVIP<span class="price">15.00 PLN</span>
+                </a>
+                
+                <a href="https://tipply.pl/@dorszeg" target="_blank" class="btn">
+                    SZEF<span class="price">20.00 PLN</span>
+                </a>
             </div>
 
-            <div class="shop-category">
-                <h3>Klucze</h3>
-                <a href="https://tipply.pl/@dorszeg" target="_blank" class="btn">Klucz Rzadki</a>
-                <a href="https://tipply.pl/@dorszeg" target="_blank" class="btn">Klucz Epicki</a>
-                <a href="https://tipply.pl/@dorszeg" target="_blank" class="btn">Klucz Legendarny</a>
-            </div>
-
-            <button onclick="showSection('home')" class="btn back-btn">← Powrót do startu</button>
+            <button onclick="showSection('home')" class="btn back-btn">← Powrót</button>
         </div>
 
     </div>
