@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serwer Dorszeg - Strona i Sklep</title>
+    <title>Serwer Dorszeg</title>
     <style>
         :root {
             --glow: 0 0 20px rgba(168, 85, 247, 0.4);
@@ -24,7 +24,6 @@
             overflow-x: hidden;
         }
 
-        /* Animowane tło */
         .bg-glow {
             position: fixed;
             top: 50%;
@@ -49,37 +48,36 @@
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             background: linear-gradient(to right, #fff, var(--purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 30px;
+            font-weight: 800;
         }
 
-        /* Menu nawigacyjne */
         .nav {
             margin-bottom: 40px;
         }
 
-        /* Przyciski */
         .btn {
             display: inline-block;
             text-decoration: none;
             color: white;
-            padding: 12px 25px;
+            padding: 14px 30px;
             border: 1px solid rgba(168, 85, 247, 0.3);
-            border-radius: 8px;
+            border-radius: 12px;
             background: rgba(168, 85, 247, 0.05);
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             font-weight: 600;
-            margin: 5px;
+            margin: 8px;
         }
 
         .btn:hover {
             background: var(--purple);
             box-shadow: var(--glow);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
 
         .btn-shop-trigger {
@@ -91,9 +89,8 @@
             color: white;
         }
 
-        /* Sekcje */
         .content-section {
-            display: none; /* Domyślnie ukryte */
+            display: none;
         }
 
         .active {
@@ -102,19 +99,35 @@
         }
 
         .shop-category {
-            margin-top: 30px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 15px;
+            margin-top: 25px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
             border: 1px solid rgba(168, 85, 247, 0.1);
         }
 
-        h3 { color: var(--purple); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; }
+        h3 { 
+            color: var(--purple); 
+            text-transform: uppercase; 
+            font-size: 0.85rem; 
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
 
         .back-btn {
-            margin-top: 30px;
+            margin-top: 40px;
             font-size: 0.8rem;
-            opacity: 0.6;
+            opacity: 0.5;
+            background: transparent;
+            border: none;
+        }
+
+        .back-btn:hover {
+            opacity: 1;
+            background: transparent;
+            box-shadow: none;
+            transform: none;
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -127,42 +140,39 @@
         <div id="home" class="content-section active">
             <h1>Dorszeg</h1>
             <div class="nav">
-                <a href="https://github.com" class="btn">GitHub</a>
-                <a href="#" class="btn">Discord</a>
+                <a href="https://discord.gg/xdSUck9W" target="_blank" class="btn">Discord</a>
                 <button onclick="showSection('shop')" class="btn btn-shop-trigger">🛒 SKLEP</button>
             </div>
         </div>
 
         <div id="shop" class="content-section">
-            <h1>Sklep Serwera</h1>
+            <h1>Sklep</h1>
             
             <div class="shop-category">
                 <h3>Rangi Premium</h3>
-                <a href="https://tipply.pl/@dorszeg" class="btn">VIP</a>
-                <a href="https://tipply.pl/@dorszeg" class="btn">SVIP</a>
-                <a href="https://tipply.pl/@dorszeg" class="btn">UVIP</a>
-                <a href="https://tipply.pl/@dorszeg" class="btn">SZEF</a>
+                <a href="https://tipply.pl/@dorszeg" target="_blank" class="btn">VIP</a>
+                <a href="https://tipply.pl/@dorszeg" target="_blank" class="btn">SVIP</a>
+                <a href="https://tipply.pl/@dorszeg" target="_blank" class="btn">UVIP</a>
+                <a href="https://tipply.pl/@dorszeg" target="_blank" class="btn">SZEF</a>
             </div>
 
             <div class="shop-category">
-                <h3>Klucze do Skrzyń</h3>
-                <a href="https://tipply.pl/@dorszeg" class="btn">Klucz Rzadki</a>
-                <a href="https://tipply.pl/@dorszeg" class="btn">Klucz Epicki</a>
-                <a href="https://tipply.pl/@dorszeg" class="btn">Klucz Legendarny</a>
+                <h3>Klucze</h3>
+                <a href="https://tipply.pl/@dorszeg" target="_blank" class="btn">Klucz Rzadki</a>
+                <a href="https://tipply.pl/@dorszeg" target="_blank" class="btn">Klucz Epicki</a>
+                <a href="https://tipply.pl/@dorszeg" target="_blank" class="btn">Klucz Legendarny</a>
             </div>
 
-            <button onclick="showSection('home')" class="btn back-btn">← Powrót do strony głównej</button>
+            <button onclick="showSection('home')" class="btn back-btn">← Powrót</button>
         </div>
 
     </div>
 
     <script>
         function showSection(id) {
-            // Ukryj wszystkie sekcje
             document.querySelectorAll('.content-section').forEach(section => {
                 section.classList.remove('active');
             });
-            // Pokaż wybraną sekcję
             document.getElementById(id).classList.add('active');
         }
     </script>
