@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moja Fioletowa Strona</title>
+    <title>Moja Fioletowa Strona - Sklep</title>
     <style>
-        /* Podstawowe style i kolory */
         body {
             margin: 0;
-            padding: 0;
-            background-color: #0b0b0b; /* Głęboka czerń */
+            padding: 20px;
+            background-color: #0b0b0b;
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
@@ -17,24 +16,17 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            overflow-hidden;
         }
 
-        /* Animacja wchodzenia (Fade In) */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .container {
             text-align: center;
-            animation: fadeInUp 1.2s ease-out;
+            animation: fadeInUp 1s ease-out;
+            max-width: 800px;
         }
 
         h1 {
@@ -45,64 +37,73 @@
             -webkit-text-fill-color: transparent;
         }
 
-        p {
-            color: #a1a1aa;
-            margin-bottom: 40px;
+        h2 {
+            margin-top: 50px;
+            color: #a855f7;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.5rem;
         }
 
-        /* Stylizacja przycisków */
         .button-group {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
             justify-content: center;
+            margin-bottom: 20px;
         }
 
         .btn {
             text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 12px;
+            padding: 12px 25px;
+            border-radius: 10px;
             font-weight: bold;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: 2px solid #a855f7;
             color: #ffffff;
-            position: relative;
-            overflow: hidden;
+            font-size: 0.9rem;
         }
 
-        /* Efekt hover dla przycisków */
         .btn:hover {
             background-color: #a855f7;
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
-            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+            transform: translateY(-3px);
         }
 
-        /* Drugi styl przycisku (wypełniony) */
-        .btn-filled {
+        .btn-main {
             background-color: #a855f7;
-            border: none;
+            padding: 15px 35px;
+            font-size: 1.1rem;
         }
 
-        .btn-filled:hover {
-            background-color: #9333ea;
-            box-shadow: 0 0 30px rgba(147, 51, 234, 0.8);
+        /* Styl dla sekcji sklepu */
+        .shop-section {
+            background: rgba(168, 85, 247, 0.05);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            margin-top: 30px;
         }
 
-        /* Pływające tło w tle */
+        .label {
+            display: block;
+            margin-bottom: 15px;
+            color: #a1a1aa;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
         .blob {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: rgba(168, 85, 247, 0.2);
-            filter: blur(80px);
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: rgba(168, 85, 247, 0.15);
+            filter: blur(100px);
             border-radius: 50%;
             z-index: -1;
-            animation: move 10s infinite alternate;
-        }
-
-        @keyframes move {
-            from { transform: translate(-50%, -50%); }
-            to { transform: translate(50%, 50%); }
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
     </style>
 </head>
@@ -111,15 +112,33 @@
     <div class="blob"></div>
 
     <div class="container">
-        <h1>Witaj w mojej przestrzeni</h1>
-        <p>Prosta, elegancka i szybka strona hostowana na GitHubie.</p>
-
+        <h1>Witaj na Serwerze</h1>
+        
         <div class="button-group">
-            <a href="https://github.com" class="btn btn-filled">Mój GitHub</a>
-            <a href="#" class="btn">Portfolio</a>
-            <a href="#" class="btn">Kontakt</a>
+            <a href="https://github.com" class="btn btn-main">Mój GitHub</a>
+            <a href="#" class="btn btn-main">Discord</a>
+        </div>
+
+        <div class="shop-section">
+            <h2>🛒 SKLEP</h2>
+            
+            <span class="label">Rangi Premium</span>
+            <div class="button-group">
+                <a href="https://tipply.pl/@dorszeg" class="btn">VIP</a>
+                <a href="https://tipply.pl/@dorszeg" class="btn">SVIP</a>
+                <a href="https://tipply.pl/@dorszeg" class="btn">UVIP</a>
+                <a href="https://tipply.pl/@dorszeg" class="btn">SZEF</a>
+            </div>
+
+            <span class="label" style="margin-top: 20px;">Klucze do skrzyń</span>
+            <div class="button-group">
+                <a href="https://tipply.pl/@dorszeg" class="btn">Klucz Rzadki</a>
+                <a href="https://tipply.pl/@dorszeg" class="btn">Klucz Epicki</a>
+                <a href="https://tipply.pl/@dorszeg" class="btn">Klucz Legendarny</a>
+            </div>
         </div>
     </div>
 
 </body>
 </html>
+
