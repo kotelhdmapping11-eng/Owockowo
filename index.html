@@ -3,142 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moja Fioletowa Strona - Sklep</title>
+    <title>Serwer Dorszeg - Strona i Sklep</title>
     <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            background-color: #0b0b0b;
-            color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
+        :root {
+            --glow: 0 0 20px rgba(168, 85, 247, 0.4);
+            --purple: #a855f7;
+            --dark-purple: #7e22ce;
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animowane tło */
+        .bg-glow {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
         }
 
         .container {
             text-align: center;
-            animation: fadeInUp 1s ease-out;
-            max-width: 800px;
+            width: 90%;
+            max-width: 600px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
             font-size: 3rem;
-            margin-bottom: 10px;
-            background: linear-gradient(90deg, #a855f7, #6366f1);
+            background: linear-gradient(to right, #fff, var(--purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
         }
 
-        h2 {
-            margin-top: 50px;
-            color: #a855f7;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 1.5rem;
+        /* Menu nawigacyjne */
+        .nav {
+            margin-bottom: 40px;
         }
 
-        .button-group {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
+        /* Przyciski */
         .btn {
+            display: inline-block;
             text-decoration: none;
+            color: white;
             padding: 12px 25px;
-            border-radius: 10px;
-            font-weight: bold;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid #a855f7;
-            color: #ffffff;
-            font-size: 0.9rem;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 8px;
+            background: rgba(168, 85, 247, 0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 5px;
         }
 
         .btn:hover {
-            background-color: #a855f7;
-            box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
-            transform: translateY(-3px);
+            background: var(--purple);
+            box-shadow: var(--glow);
+            transform: translateY(-2px);
         }
 
-        .btn-main {
-            background-color: #a855f7;
-            padding: 15px 35px;
-            font-size: 1.1rem;
+        .btn-shop-trigger {
+            border-color: var(--purple);
+            color: var(--purple);
         }
 
-        /* Styl dla sekcji sklepu */
-        .shop-section {
-            background: rgba(168, 85, 247, 0.05);
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid rgba(168, 85, 247, 0.2);
-            margin-top: 30px;
+        .btn-shop-trigger:hover {
+            color: white;
         }
 
-        .label {
+        /* Sekcje */
+        .content-section {
+            display: none; /* Domyślnie ukryte */
+        }
+
+        .active {
             display: block;
-            margin-bottom: 15px;
-            color: #a1a1aa;
-            font-size: 0.8rem;
-            text-transform: uppercase;
+            animation: fadeIn 0.5s ease-out;
         }
 
-        .blob {
-            position: fixed;
-            width: 400px;
-            height: 400px;
-            background: rgba(168, 85, 247, 0.15);
-            filter: blur(100px);
-            border-radius: 50%;
-            z-index: -1;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        .shop-category {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border: 1px solid rgba(168, 85, 247, 0.1);
+        }
+
+        h3 { color: var(--purple); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; }
+
+        .back-btn {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            opacity: 0.6;
         }
     </style>
 </head>
 <body>
 
-    <div class="blob"></div>
+    <div class="bg-glow"></div>
 
     <div class="container">
-        <h1>Witaj na Serwerze</h1>
         
-        <div class="button-group">
-            <a href="https://github.com" class="btn btn-main">Mój GitHub</a>
-            <a href="#" class="btn btn-main">Discord</a>
+        <div id="home" class="content-section active">
+            <h1>Dorszeg</h1>
+            <div class="nav">
+                <a href="https://github.com" class="btn">GitHub</a>
+                <a href="#" class="btn">Discord</a>
+                <button onclick="showSection('shop')" class="btn btn-shop-trigger">🛒 SKLEP</button>
+            </div>
         </div>
 
-        <div class="shop-section">
-            <h2>🛒 SKLEP</h2>
+        <div id="shop" class="content-section">
+            <h1>Sklep Serwera</h1>
             
-            <span class="label">Rangi Premium</span>
-            <div class="button-group">
+            <div class="shop-category">
+                <h3>Rangi Premium</h3>
                 <a href="https://tipply.pl/@dorszeg" class="btn">VIP</a>
                 <a href="https://tipply.pl/@dorszeg" class="btn">SVIP</a>
                 <a href="https://tipply.pl/@dorszeg" class="btn">UVIP</a>
                 <a href="https://tipply.pl/@dorszeg" class="btn">SZEF</a>
             </div>
 
-            <span class="label" style="margin-top: 20px;">Klucze do skrzyń</span>
-            <div class="button-group">
+            <div class="shop-category">
+                <h3>Klucze do Skrzyń</h3>
                 <a href="https://tipply.pl/@dorszeg" class="btn">Klucz Rzadki</a>
                 <a href="https://tipply.pl/@dorszeg" class="btn">Klucz Epicki</a>
                 <a href="https://tipply.pl/@dorszeg" class="btn">Klucz Legendarny</a>
             </div>
+
+            <button onclick="showSection('home')" class="btn back-btn">← Powrót do strony głównej</button>
         </div>
+
     </div>
+
+    <script>
+        function showSection(id) {
+            // Ukryj wszystkie sekcje
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Pokaż wybraną sekcję
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
 
 </body>
 </html>
-
