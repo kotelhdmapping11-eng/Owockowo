@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serwer Dorszeg</title>
+    <title>Owockowo - Serwer Minecraft</title>
     <style>
         :root {
             --glow: 0 0 20px rgba(168, 85, 247, 0.4);
@@ -54,6 +54,7 @@
             -webkit-text-fill-color: transparent;
             margin-bottom: 30px;
             font-weight: 800;
+            letter-spacing: -1px;
         }
 
         .nav {
@@ -106,6 +107,12 @@
             border: 1px solid rgba(168, 85, 247, 0.1);
         }
 
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
         h3 { 
             color: var(--purple); 
             text-transform: uppercase; 
@@ -138,7 +145,7 @@
     <div class="container">
         
         <div id="home" class="content-section active">
-            <h1>Dorszeg</h1>
+            <h1>Owockowo</h1>
             <div class="nav">
                 <a href="https://discord.gg/xdSUck9W" target="_blank" class="btn">Discord</a>
                 <button onclick="showSection('shop')" class="btn btn-shop-trigger">🛒 SKLEP</button>
@@ -146,7 +153,7 @@
         </div>
 
         <div id="shop" class="content-section">
-            <h1>Sklep</h1>
+            <h2>Sklep</h2>
             
             <div class="shop-category">
                 <h3>Rangi Premium</h3>
@@ -163,7 +170,7 @@
                 <a href="https://tipply.pl/@dorszeg" target="_blank" class="btn">Klucz Legendarny</a>
             </div>
 
-            <button onclick="showSection('home')" class="btn back-btn">← Powrót</button>
+            <button onclick="showSection('home')" class="btn back-btn">← Powrót do startu</button>
         </div>
 
     </div>
